@@ -89,10 +89,10 @@ module.exports = {
         ctx.fillText(`Top #${userRank}`, 330, 30, 380)
 
         let wi
-        if (userfind.level > 99 || userfind.level < -99) {
+         if (userfind.level > 99 || userfind.level < -99) {
             wi = 290
-        } else if (userfind.level > 999 || userfind.level < -999) {
-            wi = 270
+        } else if (userfind.level > 9 || userfind.level < -9) {
+            wi = 310
         } else {
             wi = 320
         }
@@ -101,7 +101,12 @@ module.exports = {
         ctx.fillStyle = "white"
         ctx.fillText(`Nivel ${userfind.level}`, wi, 130, 380)
 
-        ctx.font = "13pt VictorMono"
+        let fsi = 13
+        if (ctx.measureText(`${Member.user.username}#${Member.user.discriminator}`).width >= 140) {
+            fsi = 10
+        }
+
+        ctx.font = `${fsi}pt VictorMono`
         ctx.fillStyle = "rgb(0, 202, 204)"
         ctx.fillText(`${Member.user.username}#${Member.user.discriminator}`, 120, 80, 160)
 

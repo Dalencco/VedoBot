@@ -42,7 +42,7 @@ module.exports = {
 
         let dos_embed = new MessageEmbed()
             .setTitle(`<:netting_bien:858849790284791808> | Sacaste tu Dinero`)
-            .setDescription(`Sacaste todo tu Dinero del Banco, un Total de ${userfind.bank}`)
+            .setDescription(`Sacaste todo tu Dinero del Banco, un Total de $${userfind.bank}`)
             .setColor("#00FF00")
             .setFooter (
                 `Requerido por ${message.author.tag}`,
@@ -52,7 +52,7 @@ module.exports = {
 
         let tres_embed = new MessageEmbed()
             .setTitle(`<:netting_bien:858849790284791808> | Sacaste tu Dinero`)
-            .setDescription(`Sacaste tu Dinero del Banco, un Total de ${parseInt(args[0])}`)
+            .setDescription(`Sacaste tu Dinero del Banco, un Total de $${parseInt(args[0])}`)
             .setColor("#00FF00")
             .setFooter(
                 `Requerido por ${message.author.tag}`,

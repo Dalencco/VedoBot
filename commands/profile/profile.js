@@ -102,7 +102,12 @@ module.exports = {
             }
         }
 
-        ctx.font = "20pt VictorMono"
+        let fsi = 20
+        if (ctx.measureText(`${Member.user.username}#${Member.user.discriminator}`).width >= 200) {
+            fsi = 18
+        }
+
+        ctx.font = `${fsi}pt VictorMono`
         ctx.fillStyle = "white"
         ctx.fillText(`${Member.user.username}#${Member.user.discriminator}`, 190, 110, 220)
 
@@ -115,6 +120,8 @@ module.exports = {
             wi = 440
         } else if (u.level > 99 || u.level < -99) {
             wi = 430
+        } else if (u.level > 9 || u.level < -9) {
+            wi = 445
         } else {
             wi = 460
         }
@@ -149,7 +156,9 @@ module.exports = {
         ctx.font = "17pt VictorMono"
         ctx.fillStyle = "white"
         let x
-        if (u.xp > 999 || u.xpreq > 999) {
+        if (u.xp > 9999 || u.xpreq > 9999) {
+            x = 400
+        } else if (u.xp > 999 || u.xpreq > 999) {
             x = 420
         } else if (u.xp > 99 || u.xpreq > 99) {
             x = 450

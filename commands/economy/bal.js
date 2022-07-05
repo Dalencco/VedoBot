@@ -45,8 +45,8 @@ module.exports = {
         const tres_embed = new MessageEmbed()
             .setTitle(`Balance de ${Member.user.tag}`)
             .setColor((Member.displayHexColor === "#000000" ? "RANDOM" : Member.displayHexColor))
-            .addField('**__Dinero__**:', `${userfind.money}`)
-            .addField('**__Banco__**:', `${userfind.bank}`)
+            .addField('**__Dinero__**:', `$${userfind.money}`)
+            .addField('**__Banco__**:', `$${userfind.bank}`)
             .setFooter(
                 `Requerido por ${message.author.tag}`,
                 message.author.displayAvatarURL({ dynamic: true })

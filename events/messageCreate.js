@@ -4,6 +4,7 @@ const Profile = require('../models/Profile');
 const ms = require('ms');
 const { timeout } = require("../index");
 const { MessageEmbed } = require('discord.js');
+const Config = require('../models/Config');
 
 client.on("messageCreate", async (message) => {
     if (
@@ -72,8 +73,12 @@ client.on("messageCreate", async (message) => {
                         level,
                         xpreq
                     });
-    
-                    return message.reply(`Felicidades, subiste al nivel ${level}`);
+
+                    const rankChannel = await Config.findOne({ guildid: message.guild.id })
+
+                    if (!rankChannel || !rankChannel.rankchannel) return message.reply(`<:test:793705007002157108> | Felicidades, subiste al nivel **${level}**`);
+
+                    return client.channels.cache.get(rankChannel.rankchannel).send(`<:test:793705007002157108> | Felicidades ${message.author.toString()}, subiste al nivel **${level}**`);
                 }
     
                 else {
